@@ -5,28 +5,28 @@ import java.util.List;
 
 import br.edu.ifma.padroes.composite.interfaces.InterfaceCelula;
 
-public class Linha extends CelulaAbstrata implements InterfaceCelula {
+public class Linha implements InterfaceCelula {
 	
-	private List<Celula> celulas = new ArrayList<Celula>();
+	private List<InterfaceCelula> filhos = new ArrayList<InterfaceCelula>();
 
 	@Override
 	public void imprimir() {
 		System.out.println(" |");
 		
-		int tamanho = (celulas.size() * 17) + 5;
+		int tamanho = (filhos.size() * 17) + 5;
 		char[] linha = new char[tamanho];
 		
-		for (int i = 0; i < tamanho; i++) linha[i] = '-';
+		for (int i = 0; i < tamanho; i++) 
+			linha[i] = '-';
+		
 		System.out.println(" " + new String(linha));
-		for (int i = 0; i < celulas.size(); i++)
-		System.out.print(" " + celulas.get(i).getConteudo());
+		
+		for (InterfaceCelula filho : filhos) {
+			filho.imprimir();
+		}
 	}
 	
-	public List<Celula> getCelulas() {
-		return celulas;
-	}
-	
-	public void adicionar(Celula celula) {
-		this.celulas.add(celula);
+	public void adicionar(InterfaceCelula celula) {
+		this.filhos.add(celula);
 	}
 }

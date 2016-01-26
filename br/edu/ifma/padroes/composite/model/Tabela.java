@@ -7,21 +7,18 @@ import br.edu.ifma.padroes.composite.interfaces.InterfaceCelula;
 
 public class Tabela implements InterfaceCelula {
 	
-	private List<Linha> linhas = new ArrayList<Linha>();
+	private List<InterfaceCelula> linhas = new ArrayList<InterfaceCelula>();
 
 	@Override
 	public void imprimir() {
 		
-		for (Linha linha : linhas) {	
+		for (InterfaceCelula linha : linhas) {	
 			linha.imprimir();
 		}
 	}
+
 	
-	public List<Linha> getLinhas() {
-		return linhas;
-	}
-	
-	public void adicionar(Linha linha) {
+	public void adicionar(InterfaceCelula linha) {
 		this.linhas.add(linha);
 	}
 }

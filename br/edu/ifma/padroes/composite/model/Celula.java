@@ -2,7 +2,7 @@ package br.edu.ifma.padroes.composite.model;
 
 import br.edu.ifma.padroes.composite.interfaces.InterfaceCelula;
 
-public class Celula extends CelulaAbstrata implements InterfaceCelula {
+public class Celula implements InterfaceCelula {
 	
 	private String conteudo;
 	
@@ -25,9 +25,9 @@ public class Celula extends CelulaAbstrata implements InterfaceCelula {
 	@Override
 	public void imprimir() {
 		
-		conteudo = conteudo + "        ";
-		conteudo = conteudo.substring(0, 15);
+		this.conteudo = this.conteudo + "            ";
+		//this.conteudo = this.conteudo;
 		
-		System.out.println(" | " + conteudo);
+		System.out.print(" | " + conteudo);
 	}
 }
