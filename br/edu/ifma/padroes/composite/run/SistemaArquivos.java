@@ -5,6 +5,8 @@ import br.edu.ifma.padroes.composite.model.Diretorio;
 
 public class SistemaArquivos {
 	
+	public static StringBuffer sb = new StringBuffer("|");
+	
 	public static void main(String[] args) {
 		
 		Diretorio d1 = new Diretorio("Pasta Pessoal");

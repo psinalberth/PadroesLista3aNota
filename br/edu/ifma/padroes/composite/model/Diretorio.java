@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import br.edu.ifma.padroes.composite.run.SistemaArquivos;
+
 public class Diretorio extends ArquivoAbstrato {
 	
 	private List<ArquivoAbstrato> filhos = new ArrayList<ArquivoAbstrato>();
@@ -25,7 +27,8 @@ public class Diretorio extends ArquivoAbstrato {
 	@Override
 	public void listar() {
 		
-		System.out.println(this.getNome());
+		System.out.println(SistemaArquivos.sb + this.getNome());
+		SistemaArquivos.sb.append("_");
 		Collections.sort(this.getFilhos(), Diretorio.diretorioComparator);
 		
 		for (ArquivoAbstrato arquivo : filhos) {	

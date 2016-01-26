@@ -1,6 +1,7 @@
 package br.edu.ifma.padroes.composite.model;
 
 import br.edu.ifma.padroes.composite.interfaces.InterfaceArquivo;
+import br.edu.ifma.padroes.composite.run.SistemaArquivos;
 
 public class Arquivo extends ArquivoAbstrato implements InterfaceArquivo {
 	
@@ -16,7 +17,7 @@ public class Arquivo extends ArquivoAbstrato implements InterfaceArquivo {
 	}
 
 	public void listar() {
-		System.out.println(this.getNome() + " [" + this.getTamanho() + " KB]");
+		System.out.println(SistemaArquivos.sb + this.getNome() + " [" + this.getTamanho() + " KB]");
 	}
 
 	public int getTamanho() {
