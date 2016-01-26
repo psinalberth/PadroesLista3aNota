@@ -3,17 +3,16 @@ package br.edu.ifma.padroes.composite.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifma.padroes.composite.interfaces.InterfaceCelula;
+import br.edu.ifma.padroes.composite.interfaces.Componente;
 
-public class Linha implements InterfaceCelula {
+public class Linha implements Componente {
 	
-	private List<InterfaceCelula> filhos = new ArrayList<InterfaceCelula>();
+	private List<Componente> filhos = new ArrayList<Componente>();
 
 	@Override
 	public void imprimir() {
-		System.out.println(" |");
 		
-		int tamanho = (filhos.size() * 17) + 5;
+		int tamanho = (filhos.size() * 17) + 4;
 		char[] linha = new char[tamanho];
 		
 		for (int i = 0; i < tamanho; i++) 
@@ -21,12 +20,16 @@ public class Linha implements InterfaceCelula {
 		
 		System.out.println(" " + new String(linha));
 		
-		for (InterfaceCelula filho : filhos) {
+		for (Componente filho : filhos) {
+			
 			filho.imprimir();
 		}
+		
+		System.out.print(" |");
+		System.out.println("\n " + new String(linha));
 	}
 	
-	public void adicionar(InterfaceCelula celula) {
+	public void adicionar(Componente celula) {
 		this.filhos.add(celula);
 	}
 }

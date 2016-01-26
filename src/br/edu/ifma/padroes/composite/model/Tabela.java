@@ -3,22 +3,22 @@ package br.edu.ifma.padroes.composite.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifma.padroes.composite.interfaces.InterfaceCelula;
+import br.edu.ifma.padroes.composite.interfaces.Componente;
 
-public class Tabela implements InterfaceCelula {
+public class Tabela implements Componente {
 	
-	private List<InterfaceCelula> linhas = new ArrayList<InterfaceCelula>();
+	private List<Componente> linhas = new ArrayList<Componente>();
 
 	@Override
 	public void imprimir() {
 		
-		for (InterfaceCelula linha : linhas) {	
+		for (Componente linha : linhas) {
+			
 			linha.imprimir();
 		}
 	}
-
 	
-	public void adicionar(InterfaceCelula linha) {
+	public void adicionar(Componente linha) {
 		this.linhas.add(linha);
 	}
 }
